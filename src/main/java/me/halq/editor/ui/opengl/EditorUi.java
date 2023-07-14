@@ -111,7 +111,6 @@ public class EditorUi {
             //set window name of fps
             if (FileSub.fileName != null) {
                 String f;
-                //get file name without path
                 if (FileSub.fileName.contains("\\")) {
                     f = FileSub.fileName.substring(FileSub.fileName.lastIndexOf("\\") + 1);
                 } else {
