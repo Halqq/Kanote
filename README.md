@@ -4,6 +4,9 @@ Kanote is a Java-based text editor project developed to test the capabilities of
 
 Note: Kanote is currently in beta and not all features are fully functional.
 
+![image](https://github.com/Halqq/Kanote/assets/72313113/6a990512-09e6-4859-8080-27f0e1777ae1)
+
+
 ## TODO
 
 - Add flalaf to code for jframe
