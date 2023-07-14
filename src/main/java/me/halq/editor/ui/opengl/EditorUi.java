@@ -94,7 +94,6 @@ public class EditorUi {
             glViewport(0, 0, windowSize.x, windowSize.y);
             glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
-            //calcule fps
             double currentTime = glfwGetTime();
             double delta = currentTime - lastTime;
             frames++;
@@ -108,7 +107,7 @@ public class EditorUi {
                 FrameBuilder.updateFpsLabel(formattedFps);
 
             }
-            //set window name of fps
+
             if (FileSub.fileName != null) {
                 String f;
                 if (FileSub.fileName.contains("\\")) {
@@ -118,6 +117,8 @@ public class EditorUi {
                 }
                 glfwSetWindowTitle(window, "KaNote - Editing: " + f);
             }
+
+            Editor.update();
             renderer.render(frame, context);
 
             glPushMatrix();
@@ -140,8 +141,6 @@ public class EditorUi {
             LayoutManager.getInstance().layout(frame);
 
             AnimatorProvider.getAnimator().runAnimations();
-
-            Editor.text = Editor.textArea.getTextState().getText();
         }
 
         renderer.destroy();

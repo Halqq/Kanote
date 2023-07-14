@@ -32,6 +32,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
+    implementation 'org.benf:cfr:0.150'
     implementation "com.formdev:flatlaf:2.6"
     implementation "org.liquidengine:legui:3.3.1"
     implementation group: 'com.github.plexpt', name: 'chatgpt', version: '4.1.2'

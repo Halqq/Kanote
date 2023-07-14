@@ -41,4 +41,8 @@ public class Editor extends Element {
     public Component getComponent() {
         return editor;
     }
+
+    public static void update(){
+        text = textArea.getTextState().getText();
+    }
 }
