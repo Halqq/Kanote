@@ -1,6 +1,8 @@
 # Kanote
 
-Kanote is a Java-based text editor project developed to test the capabilities of the [Legui](https://https://github.com/SpinyOwl/legui) library. This project aims to provide a user-friendly and visually appealing text editor for various purposes.
+Kanote is a Java-based text editor project developed to test the capabilities of the [Legui](https://https://github.com/SpinyOwl/legui) library. This project aims to provide a user-friendly and visually appealing text editor for various purposes. 
+
+Note: Kanote is currently in beta and not all features are fully functional.
 
 ## TODO
 
