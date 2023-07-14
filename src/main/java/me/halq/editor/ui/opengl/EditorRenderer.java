@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryUtil.NULL;
  * @since 11/07/2023 at 18:39
  */
 
-public class EditorUi {
+public class EditorRenderer {
 
     private static final DecimalFormat fpsFormat = new DecimalFormat("00");
     public static int WIDTH;

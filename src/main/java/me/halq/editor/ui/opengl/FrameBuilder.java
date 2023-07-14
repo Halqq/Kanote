@@ -1,13 +1,11 @@
 package me.halq.editor.ui.opengl;
 
-import me.halq.editor.ui.opengl.element.Editor;
-import me.halq.editor.ui.opengl.element.ToolBar;
 import me.halq.editor.ui.opengl.element.api.ElementManager;
 import org.joml.Vector4f;
 import org.liquidengine.legui.component.Frame;
 import org.liquidengine.legui.component.Label;
 
-import static me.halq.editor.ui.opengl.EditorUi.fps;
+import static me.halq.editor.ui.opengl.EditorRenderer.fps;
 import static me.halq.editor.ui.opengl.element.ToolBar.background;
 
 /**

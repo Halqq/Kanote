@@ -1,6 +1,6 @@
 package me.halq.editor;
 
-import me.halq.editor.ui.opengl.EditorUi;
+import me.halq.editor.ui.opengl.EditorRenderer;
 
 import java.io.IOException;
 
@@ -13,6 +13,6 @@ public class KaNote {
 
     public static void main(String[] args) throws IOException {
         //omg
-        EditorUi.openGui();
+        EditorRenderer.openGui();
     }
 }
