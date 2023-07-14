@@ -12,6 +12,7 @@ import java.io.IOException;
 public class KaNote {
 
     public static void main(String[] args) throws IOException {
+        //omg
         EditorUi.openGui();
     }
 }
