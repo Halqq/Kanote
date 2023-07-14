@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+}
+
+group 'me.halq.editor'
+version '2.3.2-beta'
+
+def lwjglVersion = "3.1.6" // Defina a versão desejada do LWJGL aqui
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        name = "Releases"
+        url = "https://raw.github.com/SpinyOwl/repo/releases"
+    }
+    maven {
+        name = "Snapshots"
+        url = "https://raw.github.com/SpinyOwl/repo/snapshots"
+    }
+    maven {
+        name = "Develop"
+        url = "https://raw.github.com/SpinyOwl/repo/develop"
+    }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    maven { url "https://oss.sonatype.org/content/repositories/internal/" }
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+    implementation "com.formdev:flatlaf:2.6"
+    implementation "org.liquidengine:legui:3.3.1"
+    implementation group: 'com.github.plexpt', name: 'chatgpt', version: '4.1.2'
+
+    implementation "org.lwjgl:lwjgl:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl-egl:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl-glfw:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl-nanovg:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl-opengl:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl-sse:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl-stb:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl-tinyfd:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl-nfd:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl-xxhash:$lwjglVersion"
+
+    testImplementation 'junit:junit:4.11'
+}
+
+application {
+    mainClassName = 'me.halq.editor.KaNote'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'me.halq.editor.KaNote'
+    }
+    from sourceSets.main.allSource
+}
