@@ -1,7 +1,8 @@
 package me.halq.editor.ui.opengl;
 
-import me.halq.editor.ui.opengl.component.Editor;
-import me.halq.editor.ui.opengl.component.subs.FileSub;
+import me.halq.editor.ui.opengl.element.Editor;
+import me.halq.editor.ui.opengl.element.api.ElementManager;
+import me.halq.editor.ui.opengl.element.subs.FileSub;
 import org.joml.Vector2i;
 import org.liquidengine.legui.animation.AnimatorProvider;
 import org.liquidengine.legui.component.Frame;
@@ -59,6 +60,8 @@ public class EditorUi {
         glfwShowWindow(window);
 
         GL.createCapabilities();
+
+        new ElementManager();
 
         Frame frame = new Frame(WIDTH, HEIGHT);
         createGuiElements(frame);

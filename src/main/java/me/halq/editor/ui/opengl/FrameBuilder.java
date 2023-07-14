@@ -1,12 +1,14 @@
 package me.halq.editor.ui.opengl;
 
-import me.halq.editor.ui.opengl.component.Editor;
-import me.halq.editor.ui.opengl.component.ToolBar;
+import me.halq.editor.ui.opengl.element.Editor;
+import me.halq.editor.ui.opengl.element.ToolBar;
+import me.halq.editor.ui.opengl.element.api.ElementManager;
 import org.joml.Vector4f;
 import org.liquidengine.legui.component.Frame;
 import org.liquidengine.legui.component.Label;
 
 import static me.halq.editor.ui.opengl.EditorUi.fps;
+import static me.halq.editor.ui.opengl.element.ToolBar.background;
 
 /**
  * @author Halq
@@ -21,10 +23,12 @@ public class FrameBuilder {
     public FrameBuilder(Frame frame) {
         FrameBuilder.frame = frame;
 
-        frame.getContainer().getStyle().getBackground().setColor(new Vector4f(0.27f, 0.27f, 0.27f, 1.0f)); // Define a cor de fundo como vermelho
-        frame.getContainer().add(new ToolBar().toolBarBackground());
-        frame.getContainer().add(new ToolBar().makeToolBar());
-        frame.getContainer().add(new Editor().makeEditor());
+        ElementManager.prepareComponents();
+        frame.getContainer().getStyle().getBackground().setColor(new Vector4f(0.27f, 0.27f, 0.27f, 1.0f));
+
+        frame.getContainer().add(background);
+        frame.getContainer().add(ElementManager.getComponents());
+
         fpsLabel = new Label("FPS: " + fps);
         fpsLabel.setPosition(0, 150);
         fpsLabel.getStyle().setTextColor(new Vector4f(1.0f, 1.0f, 1.0f, 1.0f));

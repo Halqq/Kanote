@@ -1,5 +1,7 @@
-package me.halq.editor.ui.opengl.component;
+package me.halq.editor.ui.opengl.element;
 
+import me.halq.editor.ui.opengl.element.api.Element;
+import org.liquidengine.legui.component.Component;
 import org.liquidengine.legui.component.Panel;
 import org.liquidengine.legui.component.TextAreaField;
 import org.liquidengine.legui.component.optional.align.VerticalAlign;
@@ -10,13 +12,14 @@ import org.liquidengine.legui.style.color.ColorConstants;
  * @since 11/07/2023 at 22:03
  */
 
-public class Editor extends Panel {
+public class Editor extends Element {
 
     public static String text = "nop";
     public static TextAreaField textArea = new TextAreaField();
+    Panel editor = new Panel(200, 60, 1100, 600);
 
-    public Panel makeEditor() {
-        Panel editor = new Panel(200, 60, 1100, 600);
+    @Override
+    public void prepareComponents(){
         editor.getStyle().getBackground().setColor(ColorConstants.darkGray());
         editor.getStyle().setBorder(null);
         textArea.setSize(1100, 600);
@@ -32,7 +35,10 @@ public class Editor extends Panel {
         textArea.getTextState().setText("aaa");
 
         editor.add(textArea);
+    }
 
+    @Override
+    public Component getComponent() {
         return editor;
     }
 }

@@ -1,8 +1,10 @@
-package me.halq.editor.ui.opengl.component;
+package me.halq.editor.ui.opengl.element;
 
-import me.halq.editor.ui.opengl.component.subs.FileSub;
+import me.halq.editor.ui.opengl.element.api.Element;
+import me.halq.editor.ui.opengl.element.subs.FileSub;
 import org.joml.Vector4f;
 import org.liquidengine.legui.component.Button;
+import org.liquidengine.legui.component.Component;
 import org.liquidengine.legui.component.Panel;
 import org.liquidengine.legui.event.CursorEnterEvent;
 import org.liquidengine.legui.style.color.ColorConstants;
@@ -12,21 +14,19 @@ import org.liquidengine.legui.style.color.ColorConstants;
  * @since 11/07/2023 at 21:17
  */
 
-public class ToolBar {
+public class ToolBar extends Element {
 
     public static Panel toolbar = new Panel(0, 0, 10000, 20000);
+    public static Panel background = new Panel(0, 0, 10000, 45);
+
     public static boolean sub = false;
 
-    public Panel toolBarBackground() {
-        Panel background = new Panel(0, 0, 10000, 45);
+    @Override
+    public void prepareComponents() {
         background.getStyle().getBackground().setColor(new Vector4f(0.14f, 0.14f, 0.14f, 1.0f));
         background.getStyle().setBorder(null);
         background.getStyle().setMargin(0f, 0f, 0f, 0f);
 
-        return background;
-    }
-
-    public Panel makeToolBar() {
         toolbar.getStyle().getBackground().setColor(ColorConstants.transparent());
         toolbar.getStyle().setBorder(null);
 
@@ -39,8 +39,6 @@ public class ToolBar {
         fileb.setPosition(0, 0);
         fileb.getHoveredStyle().getBackground().setColor(new Vector4f(0.33f, 0.33f, 0.33f, 1.0f));
         fileb.getStyle().setBorderRadius(0f);
-
-        FileSub.prepareSubs();
 
         fileb.getListenerMap().addListener(CursorEnterEvent.class, event -> {
             if (!sub || FileSub.sub || FileSub.sub2 || FileSub.sub3 || FileSub.sub4) {
@@ -64,7 +62,10 @@ public class ToolBar {
 
         toolbar.add(fileb);
         toolbar.add(editb);
+    }
 
+    @Override
+    public Component getComponent() {
         return toolbar;
     }
 }

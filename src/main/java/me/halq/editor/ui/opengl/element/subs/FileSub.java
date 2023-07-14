@@ -1,9 +1,10 @@
-package me.halq.editor.ui.opengl.component.subs;
+package me.halq.editor.ui.opengl.element.subs;
 
 import me.halq.editor.file.GetStringFile;
 import me.halq.editor.file.SaveFile;
-import me.halq.editor.ui.opengl.component.Editor;
-import me.halq.editor.ui.opengl.component.ToolBar;
+import me.halq.editor.ui.opengl.element.Editor;
+import me.halq.editor.ui.opengl.element.api.Element;
+import me.halq.editor.ui.opengl.element.ToolBar;
 import org.joml.Vector4f;
 import org.liquidengine.legui.component.Button;
 import org.liquidengine.legui.event.CursorEnterEvent;
@@ -21,7 +22,7 @@ import static org.liquidengine.legui.event.MouseClickEvent.MouseClickAction.CLIC
  * @since 12/07/2023 at 23:12
  */
 
-public class FileSub {
+public class FileSub extends Element {
 
     public static boolean sub = false;
     public static boolean sub2 = false;
@@ -34,7 +35,22 @@ public class FileSub {
     static Button closeb = new Button("Close");
     static String saveFile;
 
-    public static void prepareSubs() {
+    public static void makeSubs() {
+        ToolBar.toolbar.add(openB);
+        ToolBar.toolbar.add(saveB);
+        ToolBar.toolbar.add(createb);
+        ToolBar.toolbar.add(closeb);
+    }
+
+    public static void removeSubs() {
+        ToolBar.toolbar.remove(openB);
+        ToolBar.toolbar.remove(saveB);
+        ToolBar.toolbar.remove(createb);
+        ToolBar.toolbar.remove(closeb);
+    }
+
+    @Override
+    public void prepareComponents() {
         openB.getStyle().getBackground().setColor(ColorConstants.darkGray());
         openB.getHoveredStyle().getBackground().setColor(new Vector4f(0.33f, 0.33f, 0.33f, 1.0f));
         openB.getStyle().setTextColor(ColorConstants.white());
@@ -165,19 +181,5 @@ public class FileSub {
             System.exit(0);
         });
 
-    }
-
-    public static void makeSubs() {
-        ToolBar.toolbar.add(openB);
-        ToolBar.toolbar.add(saveB);
-        ToolBar.toolbar.add(createb);
-        ToolBar.toolbar.add(closeb);
-    }
-
-    public static void removeSubs() {
-        ToolBar.toolbar.remove(openB);
-        ToolBar.toolbar.remove(saveB);
-        ToolBar.toolbar.remove(createb);
-        ToolBar.toolbar.remove(closeb);
     }
 }
