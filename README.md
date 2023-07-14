@@ -9,7 +9,7 @@ Note: Kanote is currently in beta and not all features are fully functional.
 
 ## TODO
 
-- Add flalaf to code for jframe
+- Add flalaf in code for jframe
 - Add java decompiler
 - Add ChatGpt window
 
